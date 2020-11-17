@@ -19,9 +19,9 @@ class minecraft (
   }
   file {'/etc/systemd/system/minecraft.service':
     ensure => file,
-    contest => epp('minecraft/minecraft.service','{
+    contest => epp('minecraft/minecraft.service.epp', {
       install_dir => $install_dir,
-    })
+    }),
   }
   service {'minecraft':
     ensure => running,
